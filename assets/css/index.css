@@ -470,6 +470,12 @@ div.swiper-button-next:active {
     padding-top: 23px;
 }
 
+.populars .slide__figure img {
+    width: 80%;
+    height: 80%;
+    object-fit: cover;
+}
+
 .slide__sale {
     position: absolute;
     top: 20px;
