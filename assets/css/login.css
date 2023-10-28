@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap');
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+    transition: all .2s ease;
+    font-family: 'Inter', sans-serif;
+    outline: none;
+}
+
+:root {
+    --box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
+}
+
+body {
+    background-color: #F0F0F0;
+}
+
+.warning {
+    display: none;
+}
+
+.warning.active {
+    display: block;
+    color: #fff;
+    font-size: 15px;
+}
+
+.hero {
+    height: 100vh;
+    background-image: url('https://cdn.discordapp.com/attachments/1129195909796860029/1167669035681452032/login-bg.jpg?ex=654ef788&is=653c8288&hm=14eb8a47055ff5bc1d0a6228a9a0f4221c9de90e53b25fe51b6d2ec34d38f223&');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero__form {
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    border: 1px solid #fff;
+    background-color: #ffffff33;
+    border-radius: 10px;
+    position: relative;
+    top: -60px;
+}
+
+.hero__form h3 {
+    color: #fff;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.hero__form .inputs {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.hero__form input {
+    padding: 8px 5px;
+    font-family: 'Inter', sans-serif;
+    border: none;
+    height: 35px;
+    border-radius: 3px;
+}
+
+.hero__form button {
+    padding: 8px 5px;
+    border: none;
+    height: 35px;
+    border-radius: 3px;
+    background-color: #50B83F;
+    color: #fff;
+}
+
+.hero__form button:hover {
+    background-color: #57ca46;
+    cursor: pointer;
+}
+
+.form__figure {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+/* MEDIA QUERYS */
+
+@media screen and (max-width: 640px) {
+    .hero__form {
+        width: 400px;
+    }
+
+    .hero__form .inputs {
+        flex-direction: column;
+    }
+
+    .hero__form button, input {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .hero__form {
+        width: 80%;
+    }
+}
+
+@media screen and (max-width: 430px) {
+    .hero__form h3 {
+        font-size: 20px;
+    }
+}
