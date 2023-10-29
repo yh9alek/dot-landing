@@ -10,6 +10,8 @@
          <!-- swiper css link -->
          <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css"/>
          <link rel="shortcut icon" href="https://cdn.discordapp.com/attachments/1129195909796860029/1166940505163169902/logo.PNG?ex=654c5109&is=6539dc09&hm=492ec07c7fd0191b3b1930e27ea2c6094bbad8aef0a706010272eeada8f6e14b&" type="image/x-icon">
+         <script type="module" src="assets/app/firebase.js"></script>
+         <script type="module" src="assets/js/read.js"></script>
     </head>
     <body>
         <!-- HEADER -->
@@ -20,7 +22,7 @@
                     <p>Dot</p>
                 </figure>
                 <ul class="header__list">
-                    <li class="header__item"><a href="assets/html/admin.html" class="header__link"><i class="fa-solid fa-user"></i> Admin</a></li>
+                    <li class="header__item"><a href="assets/html/login.html" class="header__link"><i class="fa-solid fa-user"></i> Admin</a></li>
                 </ul>
             </nav>
         </header>
@@ -71,92 +73,7 @@
                     </div>
                 </div>
                 <div class="swiper products-swiper">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="slide__content">
-                                <figure class="slide__figure">
-                                    <img src="https://cdn.discordapp.com/attachments/1129195909796860029/1167124282070020137/lap-1.jpg?ex=654cfc30&is=653a8730&hm=b9358270eecd933c11980617369a8c2cf0217cbf843398ee6873fca447903288&" alt="Product Image">
-                                </figure>
-                                <h3>HP Gaming Victuss</h3>
-                                <div class="price">
-                                    <p><span>$</span>14.000<span>00</span></p>
-                                    <p>20% OFF</p>
-                                </div>
-                                <div class="buy">
-                                    <a href="#" class="btn-buy">Buy now</a>
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="tags">
-                                <p>50% Lorem</p>
-                                <p><span>15</span> Left</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide__content">
-                                <figure class="slide__figure">
-                                    <img src="https://cdn.discordapp.com/attachments/1129195909796860029/1167124282070020137/lap-1.jpg?ex=654cfc30&is=653a8730&hm=b9358270eecd933c11980617369a8c2cf0217cbf843398ee6873fca447903288&" alt="Product Image">
-                                </figure>
-                                <h3>HP Gaming Victuss</h3>
-                                <div class="price">
-                                    <p><span>$</span>14.000<span>00</span></p>
-                                    <p>20% OFF</p>
-                                </div>
-                                <div class="buy">
-                                    <a href="#" class="btn-buy">Buy now</a>
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="tags">
-                                <p>50% Lorem</p>
-                                <p><span>15</span> Left</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide__content">
-                                <figure class="slide__figure">
-                                    <img src="https://cdn.discordapp.com/attachments/1129195909796860029/1167124282070020137/lap-1.jpg?ex=654cfc30&is=653a8730&hm=b9358270eecd933c11980617369a8c2cf0217cbf843398ee6873fca447903288&" alt="Product Image">
-                                </figure>
-                                <h3>HP Gaming Victuss</h3>
-                                <div class="price">
-                                    <p><span>$</span>14.000<span>00</span></p>
-                                    <p>20% OFF</p>
-                                </div>
-                                <div class="buy">
-                                    <a href="#" class="btn-buy">Buy now</a>
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="tags">
-                                <p>50% Lorem</p>
-                                <p><span>15</span> Left</p>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="slide__content">
-                                <figure class="slide__figure">
-                                    <img src="https://cdn.discordapp.com/attachments/1129195909796860029/1167124282070020137/lap-1.jpg?ex=654cfc30&is=653a8730&hm=b9358270eecd933c11980617369a8c2cf0217cbf843398ee6873fca447903288&" alt="Product Image">
-                                </figure>
-                                <h3>HP Gaming Victuss</h3>
-                                <div class="price">
-                                    <p><span>$</span>14.000<span>00</span></p>
-                                    <p>20% OFF</p>
-                                </div>
-                                <div class="buy">
-                                    <a href="#" class="btn-buy">Buy now</a>
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                            </div>
-                            <div class="bar"></div>
-                            <div class="tags">
-                                <p>50% Lorem</p>
-                                <p><span>15</span> Left</p>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="swiper-wrapper"></div>
                 </div>
                 <div class="swiper-button-next"></div>
             </div>
@@ -171,7 +88,7 @@
                 </div>
                 <div class="swiper populars-swiper">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide">
+                        <!-- <div class="swiper-slide">
                             <div class="slide__content">
                                 <div class="background"></div>
                                 <a href="#" class="slide-heart"><i class="fa-solid fa-heart"></i></a>
@@ -261,7 +178,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
                 <div class="swiper-button-next2"></div>
@@ -272,7 +189,5 @@
          <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
          <!-- personal script -->
         <script src="assets/js/index.js"></script>
-        <!-- firebase script -->
-        <script src="assets/js/firebase.js"></script>
     </body>
 </html>

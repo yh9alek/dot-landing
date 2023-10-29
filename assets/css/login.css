@@ -20,10 +20,6 @@ body {
 }
 
 .warning {
-    display: none;
-}
-
-.warning.active {
     display: block;
     color: #fff;
     font-size: 15px;
@@ -37,6 +33,7 @@ body {
     background-repeat: no-repeat;
     background-attachment: fixed;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -73,7 +70,7 @@ body {
     border-radius: 3px;
 }
 
-.hero__form button {
+.hero__form input[type="submit"] {
     padding: 8px 5px;
     border: none;
     height: 35px;
@@ -82,7 +79,7 @@ body {
     color: #fff;
 }
 
-.hero__form button:hover {
+.hero__form input[type="submit"]:hover {
     background-color: #57ca46;
     cursor: pointer;
 }
