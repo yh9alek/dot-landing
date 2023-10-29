@@ -2,21 +2,6 @@ import { collection, addDoc } from 'https://www.gstatic.com/firebasejs/10.5.2/fi
 import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js';
 import { db, storage } from '../app/firebase.js';
 
-// Función para agregar información a Firestore
-/*export const agregarProducto = async ({descripcion, precio, descuento, cantidad}) => {
-  try {
-    // Colección 'productos'
-    const productosCollection = collection(db, 'productos');
-
-    // Agrega los datos a la colección
-    const docRef = await addDoc(productosCollection, {descripcion, precio, descuento, cantidad});
-
-    console.log('Documento agregado con ID:', docRef.id);
-  } catch (error) {
-    console.error('Error al agregar el documento:', error);
-  }
-};*/
-
 // Función para agregar información y subir imagen a Firestore
 export const agregarProducto = async ({descripcion, precio, descuento, cantidad, img}) => {
   try {

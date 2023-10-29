@@ -30,8 +30,8 @@
 
         <!-- ADMIN -->
         <section class="admin" id="admin">
-            <div class="admin__container container">
-                <div class="admin__content">
+            <div class="admin__container container productos">
+                <div class="admin__content add">
                     <div class="admin__add">
                         <div class="admin__product">
                             <h3>Añadir un producto</h3>
@@ -59,7 +59,68 @@
                             </div>
                         </div>
                     </div>
-                    <button class="btn__add">Add</button>
+                    <input type="submit" value="Add" class="btn__add">
+                </div>
+                <div class="admin__content remove">
+                    <div class="admin__rem">
+                        <div class="admin__product">
+                            <h3>Eliminar un producto</h3>
+                            <div class="inputs">
+                                <div>
+                                    <input type="text" placeholder="ID" id="desc" required>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Remove" class="btn__add">
+                    </div>
+                </div>
+            </div>
+            <div class="admin__container container productos">
+                <div class="admin__content add">
+                    <div class="admin__add">
+                        <div class="admin__product">
+                            <h3>Añadir un producto popular</h3>
+                            <input type="file" name="file" id="file" accept="image/*" onchange="mostrar(event, '.product__image')" required>
+                            <figure class="admin__figure">
+                                <img src="" alt="Product Image" class="product__image">
+                            </figure>
+                        </div>
+                        <div class="inputs">
+                            <div>
+                                <p>Descripción</p>
+                                <input type="text" placeholder="Descripción" id="desc" required>
+                            </div>
+                            <div>
+                                <p>Precio</p>
+                                <input type="number" placeholder="Precio" min="0" id="precio" required>
+                            </div>
+                            <div>
+                                <p>Esta en venta?</p>
+                                <input type="checkbox" placeholder="sale" min="0" id="descuento" required>
+                            </div>
+                            <div>
+                                <p>Rate</p>
+                                <div>
+                                    <input type="number" placeholder="Rate" min="0" max="5" id="stock" required>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input type="submit" value="Add" class="btn__add">
+                </div>
+                <div class="admin__content remove">
+                    <div class="admin__rem">
+                        <div class="admin__product">
+                            <h3>Eliminar un producto popular</h3>
+                            <div class="inputs">
+                                <div>
+                                    <input type="text" placeholder="ID" id="desc" required>
+                                </div>
+                            </div>
+                        </div>
+                        <input type="submit" value="Remove" class="btn__add">
+                    </div>
                 </div>
             </div>
         </section>

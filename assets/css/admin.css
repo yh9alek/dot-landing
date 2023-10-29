@@ -95,7 +95,11 @@ header {
 
 .admin__container {
     margin-top: 50px;
-    height: 100vh;
+    height: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
 }
 
 .admin__add {
@@ -141,14 +145,18 @@ header {
 .inputs {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    justify-content: center;
+    align-items: flex-start;
 }
 
 .inputs input {
     border: 1px solid #cfcfcf;
     border-radius: 3px;
     margin-bottom: 10px;
+}
+
+.inputs input + i {
+    color: #ffb03a;
 }
 
 .inputs > div > p {
@@ -168,9 +176,68 @@ header {
     border: none;
     color: #fff;
     font-size: 16px;
+    text-align: center;
 }
 
 .btn__add:hover {
     background-color: #ffb03a;
     cursor: pointer;
+}
+
+.remove input {
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+
+.admin__rem {
+    width: max-content;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px;
+    gap: 20px;
+}
+
+.remove {
+    justify-content: flex-end;
+}
+
+@media screen and (max-width: 1000px) {
+    .admin__container {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 530px) {
+    .admin__content.add, .admin__content.remove {
+        width: 100% !important;
+    }
+
+    .admin__add, .admin__rem{
+        width: 100% !important;
+    }
+
+    input {
+        width: 100% !important;
+    }
+
+    input[type="checkbox"] {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .admin__add {
+        flex-direction: column;
+    }
+
+    .admin__figure {
+        margin-bottom: 20px;
+    }
+    
+    input[type="file"] {
+        width: 100%;
+    }
 }
