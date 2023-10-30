@@ -31,3 +31,32 @@ export const agregarProducto = async ({descripcion, precio, descuento, cantidad,
     console.error('Error al agregar el documento:', error);
   }
 };
+
+export const agregarPopular = async ({descripcion, precio, rate, sale, img}) => {
+  try {
+    // Subir la imagen a Firebase Storage
+    const storageRef = ref(storage, 'imagenes/' + img.name);
+    await uploadBytes(storageRef, img);
+
+    // Obtener la URL de la imagen recién subida
+    const imageUrl = await getDownloadURL(storageRef);
+
+    // Colección 'productos'
+    const productosCollection = collection(db, 'populares');
+
+    const data = {
+      descripcion: descripcion,
+      precio: precio,
+      rate: rate,
+      sale: sale,
+      url: imageUrl,
+    };
+
+    // Agrega los datos a la colección
+    const docRef = await addDoc(productosCollection, data);
+
+    console.log('Documento agregado con ID:', docRef.id);
+  } catch (error) {
+    console.error('Error al agregar el documento:', error);
+  }
+};

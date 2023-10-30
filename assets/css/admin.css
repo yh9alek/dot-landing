@@ -210,7 +210,7 @@ header {
 }
 
 @media screen and (max-width: 530px) {
-    .admin__content.add, .admin__content.remove {
+    .admin__content {
         width: 100% !important;
     }
 

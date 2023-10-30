@@ -59,7 +59,7 @@
                             </div>
                         </div>
                     </div>
-                    <input type="submit" value="Add" class="btn__add">
+                    <input type="submit" value="Add" class="btn__add pr">
                 </div>
                 <div class="admin__content remove">
                     <div class="admin__rem">
@@ -71,18 +71,18 @@
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value="Remove" class="btn__add">
+                        <input type="submit" value="Remove" class="btn__add pr">
                     </div>
                 </div>
             </div>
-            <div class="admin__container container productos">
+            <div class="admin__container container populares">
                 <div class="admin__content add">
                     <div class="admin__add">
                         <div class="admin__product">
                             <h3>Añadir un producto popular</h3>
-                            <input type="file" name="file" id="file" accept="image/*" onchange="mostrar(event, '.product__image')" required>
+                            <input type="file" name="file" id="file" accept="image/*" onchange="mostrarp(event, '.product__imagepo')" required>
                             <figure class="admin__figure">
-                                <img src="" alt="Product Image" class="product__image">
+                                <img src="" alt="Product Image" class="product__imagepo">
                             </figure>
                         </div>
                         <div class="inputs">
@@ -95,19 +95,19 @@
                                 <input type="number" placeholder="Precio" min="0" id="precio" required>
                             </div>
                             <div>
-                                <p>Esta en venta?</p>
-                                <input type="checkbox" placeholder="sale" min="0" id="descuento" required>
-                            </div>
-                            <div>
                                 <p>Rate</p>
                                 <div>
-                                    <input type="number" placeholder="Rate" min="0" max="5" id="stock" required>
+                                    <input type="number" placeholder="Rate" min="0" max="5" id="rate" required>
                                     <i class="fa-solid fa-star"></i>
                                 </div>
                             </div>
+                            <div>
+                                <p>Esta en venta?</p>
+                                <input type="checkbox" placeholder="sale" min="0" id="sale" required>
+                            </div>
                         </div>
                     </div>
-                    <input type="submit" value="Add" class="btn__add">
+                    <input type="submit" value="Add" class="btn__add po">
                 </div>
                 <div class="admin__content remove">
                     <div class="admin__rem">
@@ -115,11 +115,11 @@
                             <h3>Eliminar un producto popular</h3>
                             <div class="inputs">
                                 <div>
-                                    <input type="text" placeholder="ID" id="desc" required>
+                                    <input type="text" placeholder="ID" id="id" required>
                                 </div>
                             </div>
                         </div>
-                        <input type="submit" value="Remove" class="btn__add">
+                        <input type="submit" value="Remove" class="btn__add po">
                     </div>
                 </div>
             </div>
