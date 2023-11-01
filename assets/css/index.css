@@ -291,6 +291,11 @@ header {
 
 .products-swiper {
     height: 350px;
+    width: max-content;
+}
+
+#swiper-wrapper {
+    width: max-content;
 }
 
 .slide__content {
