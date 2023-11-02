@@ -2,10 +2,10 @@ import { doc, deleteDoc, query, where, getDocs, collection } from 'https://www.g
 
 import { db } from '../app/firebase.js';
 
-export const eliminarProducto = async (codigo) => {
+export const eliminar = async (codigo, coleccion) => {
   try {
     // Buscar el documento con el código proporcionado
-    const q = query(collection(db, 'productos'), where('codigo', '==', codigo));
+    const q = query(collection(db, coleccion), where('codigo', '==', codigo));
     const querySnapshot = await getDocs(q);
 
     // Verificar si se encontró algún documento con el código
@@ -16,19 +16,6 @@ export const eliminarProducto = async (codigo) => {
 
     // Eliminar el primer documento encontrado (asumiendo que los códigos son únicos)
     const productoDoc = querySnapshot.docs[0].ref;
-    await deleteDoc(productoDoc);
-
-    console.log('Documento eliminado correctamente');
-  } catch (error) {
-    console.error('Error al eliminar el documento:', error);
-  }
-};
-
-
-export const eliminarPopular = async (id) => {
-  try {
-    const productoDoc = doc(db, 'populares', id);
-
     await deleteDoc(productoDoc);
 
     console.log('Documento eliminado correctamente');
