@@ -1,6 +1,6 @@
 import { addupt } from './add.js';
 import { eliminarProducto } from './delete.js';
-import { agregarPopular } from './add.js';
+import { adduptpo } from './add.js';
 import { eliminarPopular } from './delete.js';
 import { auth } from '../app/firebase.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
@@ -64,15 +64,21 @@ btn__rem.addEventListener('click', async (e) => {
   await eliminarProducto(codrempr.value);
 });
 
+const codigo_po = document.querySelector('.populares #cod');
+const descripcion_po = document.querySelector('.populares #desc');
+const precio_po = document.querySelector('.populares #precio');
+const rate_po = document.querySelector('#rate');
+const sale_po = document.querySelector('#sale');
+const img_po = document.querySelector('.populares #file');
+
 btn__addp.addEventListener('click', async (e) => {
   e.preventDefault();
-  const descripcion = document.querySelector('.populares #desc').value;
-  const precio = parseFloat(document.querySelector('.populares #precio').value);
-  const rate = document.querySelector('#rate').value;
-  const sale = document.querySelector('#sale').checked;
-  const img = document.querySelector('.populares #file').files[0];
-
-  await agregarPopular({ descripcion, precio, rate, sale, img });
+  await adduptpo({ codigo: codigo_po.value,
+                         descripcion: descripcion_po.value, 
+                         precio: parseFloat(precio_po.value),
+                         rate: rate_po.value,
+                         img: img_po.files[0], 
+                         sale: sale_po.value, });
 });
 
 btn__remp.addEventListener('click', async (e) => {

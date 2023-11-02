@@ -61,7 +61,7 @@ const leerPopulares = () => {
         let stars = '';
       querySnapshot.forEach((doc) => {
          let producto = doc.data();
-         sale = (producto.sale) ? 'SALE' : '';
+         sale = (producto.sale) ? 'SALE' : 'OFF';
          for(let i = 0; i < producto.rate; i++) {
             stars += '<i class="fa-solid fa-star"></i>';
          }

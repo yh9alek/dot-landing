@@ -2,10 +2,9 @@ import { collection, addDoc, getDocs, query, where, doc, updateDoc } from 'https
 import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js';
 import { db, storage } from '../app/firebase.js';
 
-// Función para agregar información y subir imagen a Firestore
 export const addupt = async ({codigo, descripcion, categoria, precio, descuento, cantidad, img, status}) => {
   try {
-    // Colección 'productos'
+    // Colección productos
     const productosCollection = collection(db, 'productos');
     const querySnapshot = await getDocs(query(productosCollection, where('codigo', '==', codigo)));
 
@@ -44,31 +43,41 @@ export const addupt = async ({codigo, descripcion, categoria, precio, descuento,
   }
 };
 
-export const agregarPopular = async ({descripcion, precio, rate, sale, img}) => {
+export const adduptpo = async ({codigo, descripcion, precio, rate, img, sale}) => {
   try {
-    // Subir la imagen a Firebase Storage
-    const storageRef = ref(storage, 'imagenes/' + img.name);
-    await uploadBytes(storageRef, img);
+    // Colección populares
+    const popularesCollection = collection(db, 'populares');
+    const querySnapshot = await getDocs(query(popularesCollection, where('codigo', '==', codigo)));
 
-    // Obtener la URL de la imagen recién subida
-    const imageUrl = await getDownloadURL(storageRef);
-
-    // Colección 'productos'
-    const productosCollection = collection(db, 'populares');
+    // Obtener la URL de la imagen, ya sea nueva o existente
+    let imageUrl = null;
+    if (img) {
+      const storageRef = ref(storage, 'imagenes/' + img.name);
+      await uploadBytes(storageRef, img);
+      imageUrl = await getDownloadURL(storageRef);
+    } else if (!img && !querySnapshot.empty) {
+      imageUrl = querySnapshot.docs[0].data().url;
+    }
 
     const data = {
+      codigo: codigo,
       descripcion: descripcion,
       precio: precio,
       rate: rate,
-      sale: sale,
       url: imageUrl,
+      sale: sale,
     };
 
     // Agrega los datos a la colección
-    const docRef = await addDoc(productosCollection, data);
-
-    console.log('Documento agregado con ID:', docRef.id);
+    if (querySnapshot.empty) {
+      // El código no existe, agregar un nuevo producto
+      await addDoc(popularesCollection, data);
+    } else {
+      // El código existe, actualizar el producto
+      const productoDocRef = doc(popularesCollection, querySnapshot.docs[0].id);
+      await updateDoc(productoDocRef, data);
+    }
   } catch (error) {
-    console.error('Error al agregar el documento:', error);
+    console.error('Error al agregar o actualizar el documento:', error);
   }
 };

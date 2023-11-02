@@ -5,7 +5,7 @@ var swiper = new Swiper(".products-swiper", {
     centeredSlides: false,
     loop: true,
     autoplay: {
-      delay: 7000,
+      delay: 6000,
       disableOnInteraction: false,
     },
     pagination: {
@@ -35,7 +35,7 @@ var swiper = new Swiper(".populars-swiper", {
   centeredSlides: false,
   loop: true,
   autoplay: {
-    delay: 7000,
+    delay: 6000,
     disableOnInteraction: false,
   },
   pagination: {
