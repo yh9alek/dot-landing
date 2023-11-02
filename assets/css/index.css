@@ -11,6 +11,10 @@
     outline: none;
 }
 
+::selection {
+    background-color: #393a6377;
+}
+
 :root {
     --box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.1);
 }
@@ -287,7 +291,7 @@ header {
 }
 
 .products-swiper {
-    height: 365px;
+    height: 370px;
     width: 100%;
 }
 
@@ -418,9 +422,19 @@ div.swiper-slide {
     justify-content: space-between;
     align-items: center;
     position: relative;
-    width: 130%;
+    width: 127.5%;
     top: 55px;
-    left: -30px;
+    left: -25px;
+}
+
+.tags > p + p span {
+    font-size: 12px;
+    background-color: #4545c4;
+    color: #fff;
+    padding: .5px 3px;
+    border-radius: 3px;
+    font-weight: bolder;
+    text-align: center;
 }
 
 div.swiper-button-next {
