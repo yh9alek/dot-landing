@@ -287,8 +287,13 @@ header {
 }
 
 .products-swiper {
-    height: 350px;
-    width: max-content;
+    height: 365px;
+    width: 100%;
+}
+
+div.swiper-slide {
+    width: 230px !important;
+    margin-left: 3%;
 }
 
 #swiper-wrapper {
@@ -301,6 +306,10 @@ header {
     border-radius: 5px;
     box-shadow: var(--box-shadow);
     margin-bottom: 15px;
+}
+
+.products-swiper .slide__content {
+    width: 230px;
 }
 
 .slide__content h3 {
@@ -386,13 +395,16 @@ header {
     display: block;
     position: relative;
     z-index: -1;
-    width: 142%;
+    width: 183%;
     height: 4px;
     border-radius: 4px;
     background-color: #00000022;
 }
 
 .bar {
+    position: relative;
+    top: 55px;
+    left: -25px;
     background-color: #f7c625;
     height: 4px;
     width: 70%;
@@ -405,6 +417,10 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
+    width: 130%;
+    top: 55px;
+    left: -30px;
 }
 
 div.swiper-button-next {
@@ -477,6 +493,10 @@ div.swiper-button-next:active {
     width: 80%;
     height: 80%;
     object-fit: cover;
+}
+
+.populars div.swiper-slide {
+    margin: 0;
 }
 
 .slide__sale {

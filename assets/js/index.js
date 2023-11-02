@@ -1,13 +1,13 @@
 // Swiper JS to work in products section
 var swiper = new Swiper(".products-swiper", {
-    slidesPerView: 1,
-    spaceBetween: 30,
+    slidesPerView: 'auto',
+    spaceBetween: 10,
     centeredSlides: false,
     loop: true,
-    /*autoplay: {
+    autoplay: {
       delay: 7000,
       disableOnInteraction: false,
-    },*/
+    },
     pagination: {
       el: ".swiper-pagination",
       clickable: true,
@@ -17,12 +17,11 @@ var swiper = new Swiper(".products-swiper", {
     },
     breakpoints: {
       835: {
-        slidesPerView: 2,
+        //slidesPerView: 2,
         spaceBetween: 30,
-        centeredSlides: false,
       },
       1106: {
-        slidesPerView: 3,
+        //slidesPerView: 3,
         spaceBetween: 30,
         centeredSlides: true,
       },
@@ -31,14 +30,14 @@ var swiper = new Swiper(".products-swiper", {
 
   // Swiper JS to work in populars section
 var swiper = new Swiper(".populars-swiper", {
-  slidesPerView: 1,
+  slidesPerView: 'auto',
   spaceBetween: 30,
   centeredSlides: false,
   loop: true,
-  /*autoplay: {
+  autoplay: {
     delay: 7000,
     disableOnInteraction: false,
-  },*/
+  },
   pagination: {
     el: ".swiper-pagination",
     clickable: true,
@@ -48,15 +47,15 @@ var swiper = new Swiper(".populars-swiper", {
   },
   breakpoints: {
     564: {
-      slidesPerView: 2,
+      //slidesPerView: 2,
       spaceBetween: 30,
     },
     835: {
-      slidesPerView: 3,
+      //slidesPerView: 3,
       spaceBetween: 30,
     },
     1106: {
-      slidesPerView: 4,
+      //slidesPerView: 4,
       spaceBetween: 30,
     },
   },

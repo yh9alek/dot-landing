@@ -35,11 +35,11 @@ const leerProductos = () => {
                  <a href="#" class="btn-buy">Buy now</a>
                  <i class="fa-solid fa-heart"></i>
              </div>
-         </div>
-         <div class="bar"></div>
-         <div class="tags">
-             <p>50% Lorem</p>
-             <p><span>${producto.cantidad}</span> Left</p>
+             <div class="bar"></div>
+             <div class="tags">
+                 <p>50% Lorem</p>
+                 <p><span>${producto.cantidad}</span> Left</p>
+             </div>
          </div>
      </div>`;
         html += slide;
