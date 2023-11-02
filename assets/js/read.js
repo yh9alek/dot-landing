@@ -1,5 +1,4 @@
 import { getDocs, collection } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
-
 import { db } from '../app/firebase.js';
 
 let productos = document.querySelector('.products-swiper .swiper-wrapper');
@@ -18,7 +17,7 @@ const leerProductos = () => {
       querySnapshot.forEach((doc) => {
          let producto = doc.data();
          // Aquí verifico que la categoria del select sea la misma que la del producto, esto para poder filtrar
-         if(categoria.value !== producto.categoria) return;
+         if(categoria.value !== producto.categoria && categoria.value !== 'All') return;
          // Verifico que el status sea activo para poder mostrar
          if(!producto.status) return;
          let slide = `<div class="swiper-slide">

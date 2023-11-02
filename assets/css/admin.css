@@ -213,7 +213,7 @@ header {
 .admin__products-preview {
     margin-top: 25px;
     height: 350px;
-    width: 100%;
+    width: 350px;
     background-color: #fff;
     padding: 20px;
     overflow: hidden;
@@ -229,25 +229,48 @@ header {
 }
 
 .item {
-    height: 60px;
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex-wrap: wrap;
-    gap: 20px;
-    font-size: 13px;
+    gap: 5px;
+    font-size: 10px;
     border: 1px solid #33333333;
     border-radius: 5px;
     padding: 0px 5px;
     margin-bottom: 10px;
-    z-index: -1;
+    z-index: 1000;
+}
+
+.item.inactive {
+    background-color: rgba(255, 0, 0, 0.151);
+}
+
+.item:last-of-type {
+    margin-bottom: 70px;
+}
+
+.item > .texts:nth-of-type(2) {
+    margin-left: 5px;
+}
+
+.item > .texts:nth-of-type(2) > h4 {
+    width: 50px;
+}
+
+.item:hover {
+    cursor: pointer;
+    border: 1px solid #33333366;
+}
+
+.item:active {
+    background-color: #4545c454;
 }
 
 .item__figure {
     width: 35px;
     height: 35px;
     margin-right: 10px;
-    margin-bottom: 10px;
     overflow: hidden;
     display: flex;
     justify-content: center;
@@ -257,6 +280,7 @@ header {
 .item__figure img {
     display: block;
     width: 35px;
+    margin: 0 auto;
     object-fit: cover;
 }
 
@@ -291,6 +315,8 @@ input#search {
     width: 60px;
     height: 35px;
     border: 1px solid #cfcfcf !important;
+    position: relative;
+    top: -1px;
 }
 
 .prev__header select + div {
@@ -338,6 +364,16 @@ input#search {
         width: 15px;
         height: 15px;
     }
+
+    .admin__products-preview {
+        align-self: flex-start;
+        width: 100%;
+    }
+
+    input#search {
+        width: 60px !important;
+    }
+    
 }
 
 @media screen and (max-width: 450px) {
@@ -351,5 +387,21 @@ input#search {
     
     input[type="file"] {
         width: 100%;
+    }
+}
+
+@media screen and (max-width: 394px) {
+    .prev__header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    input#search, .prev__header select {
+        margin-left: 0;
+        width: 150px !important;
+    }
+
+    input#search {
+        margin-top: 10px;
     }
 }

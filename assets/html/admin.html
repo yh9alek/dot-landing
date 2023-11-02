@@ -12,6 +12,7 @@
         <script type="module" src="../js/add.js"></script>
         <script type="module" src="../js/admin.js"></script>
         <script type="module" src="../js/delete.js"></script>
+        <script type="module" src="../js/previews.js"></script>
     </head>
     <body>
         <!-- HEADER -->
@@ -35,6 +36,7 @@
                     <div class="admin__add">
                         <div class="admin__product">
                             <h3>Añadir un producto</h3>
+                            <p style="font-size: 12px; margin-top: 20px;">Sube una imagen personalizada</p>
                             <input type="file" name="file" id="file" accept="image/*" onchange="mostrar(event, '.product__image')" required>
                             <figure class="admin__figure">
                                 <img src="" alt="Product Image" class="product__image">
@@ -113,7 +115,7 @@
                                     <img src="https://cdn.discordapp.com/attachments/1129195909796860029/1167308531670724630/shirt.jpg?ex=654da7c9&is=653b32c9&hm=f2a05f1316f28e209c2b291271bf3465372c50a76571df25e9c7c95f131fa7ea&" alt="Product Image">
                                 </figure>
                                 <div class="texts">
-                                    <h4>Cod: 456</h4>
+                                    <h4 class="cod">Cod: 456</h4>
                                     <p>Cat: Shirt</p>
                                 </div>
                                 <div class="texts">
@@ -124,7 +126,7 @@
                                     <h4>10% OFF</h4>
                                     <p><span>15</span> left</p>
                                 </div>
-                            </li>                             -->
+                            </li> -->
                         </ul>
                     </div>
                 </div>

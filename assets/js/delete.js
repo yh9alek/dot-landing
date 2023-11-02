@@ -1,4 +1,5 @@
 import { doc, deleteDoc, query, where, getDocs, collection } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
+import { previewProductos } from './previews.js';
 
 import { db } from '../app/firebase.js';
 
@@ -17,6 +18,7 @@ export const eliminar = async (codigo, coleccion) => {
     // Eliminar el primer documento encontrado (asumiendo que los códigos son únicos)
     const productoDoc = querySnapshot.docs[0].ref;
     await deleteDoc(productoDoc);
+    previewProductos();
 
     console.log('Documento eliminado correctamente');
   } catch (error) {
