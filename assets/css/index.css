@@ -190,6 +190,7 @@ header {
     padding-top: 70px;
     padding-bottom: 70px;
     gap: 30px;
+    position: relative;
 }
 
 .products__aside {
@@ -283,10 +284,6 @@ header {
     width: 130px;
     height: 110px;
     object-fit: cover;
-}
-
-.products__container {
-    position: relative;
 }
 
 .products-swiper {
@@ -416,8 +413,9 @@ div.swiper-button-next {
     border-radius: 50%;
     box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
     position: absolute;
-    right: 65px;
-    top: calc(50% - 25px);
+    margin: 0;
+    right: 60px;
+    top: 200px;
     background-color: #fff;
 }
 
@@ -688,10 +686,10 @@ div.swiper-button-next:active {
     }
 
     div.swiper-button-next {
-        right: 5px;
-        top: 535px;
+        top: 517px;
     }
 }
+
 
 @media screen and (max-width: 438px) {
     .home {
@@ -749,10 +747,7 @@ div.swiper-button-next:active {
 }
 
 @media screen and (max-width: 351px) {
-    div.swiper-button-next {
-        right: 5px;
-        top: 560px;
-    }
+    
 }
 
 @media screen and (max-width: 326px) {

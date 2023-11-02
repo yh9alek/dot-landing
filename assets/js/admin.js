@@ -1,6 +1,6 @@
-import { agregarProducto } from './add.js';
-import { agregarPopular } from './add.js';
+import { addupt } from './add.js';
 import { eliminarProducto } from './delete.js';
+import { agregarPopular } from './add.js';
 import { eliminarPopular } from './delete.js';
 import { auth } from '../app/firebase.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
@@ -36,15 +36,25 @@ const btn__rem = document.querySelector('.remove .btn__add.pr');
 const btn__addp = document.querySelector('.btn__add.po');
 const btn__remp = document.querySelector('.remove .btn__add.po');
 
+const codigo = document.querySelector('#cod');
+const descripcion = document.querySelector('#desc');
+const categoria = document.querySelector('#cat');
+const precio = document.querySelector('#precio');
+const descuento = document.querySelector('#descuento');
+const cantidad = document.querySelector('#stock');
+const img = document.querySelector('#file');
+const status = document.querySelector('#status');
+
 btn__add.addEventListener('click', async (e) => {
   e.preventDefault();
-  const descripcion = document.getElementById('desc').value;
-  const precio = parseFloat(document.getElementById('precio').value);
-  const descuento = document.getElementById('descuento').value;
-  const cantidad = document.getElementById('stock').value;
-  const img = document.getElementById('file').files[0];
-
-  await agregarProducto({ descripcion, precio, descuento, cantidad, img });
+  await addupt({ codigo: codigo.value, 
+                 descripcion: descripcion.value, 
+                 categoria: categoria.value, 
+                 precio: parseFloat(precio.value), 
+                 descuento: descuento.value, 
+                 cantidad: cantidad.value, 
+                 img: img.files[0], 
+                 status: status.checked, });
 });
 
 btn__rem.addEventListener('click', async (e) => {

@@ -42,8 +42,22 @@
                         </div>
                         <div class="inputs">
                             <div>
+                                <p>Código</p>
+                                <input type="text" placeholder="Código" id="cod" required>
+                            </div>
+                            <div>
                                 <p>Descripción</p>
                                 <input type="text" placeholder="Descripción" id="desc" required>
+                            </div>
+                            <div>
+                                <p>Categoria</p>
+                                <select id="cat">
+                                    <option value="Watches">Watches</option>
+                                    <option value="Laptops">Laptops</option>
+                                    <option value="Smarthphones">Smarthphones</option>
+                                    <option value="Earphones">Earphones</option>
+                                    <option value="Shirts">Shirts</option>
+                                </select>
                             </div>
                             <div>
                                 <p>Precio</p>
@@ -56,6 +70,10 @@
                             <div>
                                 <p>Stock</p>
                                 <input type="number" placeholder="Stock" min="0" id="stock" required>
+                            </div>
+                            <div>
+                                <p>Status</p>
+                                <input type="checkbox" id="status" required>
                             </div>
                         </div>
                     </div>

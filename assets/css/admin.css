@@ -155,6 +155,13 @@ header {
     margin-bottom: 10px;
 }
 
+.inputs p + select {
+    border: 1px solid #cfcfcf;
+    border-radius: 3px;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
 .inputs input + i {
     color: #ffb03a;
 }

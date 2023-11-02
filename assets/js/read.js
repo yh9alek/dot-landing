@@ -4,6 +4,12 @@ import { db } from '../app/firebase.js';
 
 let productos = document.querySelector('.products-swiper .swiper-wrapper');
 let populares = document.querySelector('.populars-swiper .swiper-wrapper');
+const categoria = document.querySelector('select');
+
+// Cada vez que cambio el select, se actualizan los productos normales
+categoria.onchange = () => {
+    leerProductos();
+}
 
 const leerProductos = () => {
   getDocs(collection(db, 'productos'))
@@ -11,6 +17,10 @@ const leerProductos = () => {
         let html = '';
       querySnapshot.forEach((doc) => {
          let producto = doc.data();
+         // Aquí verifico que la categoria del select sea la misma que la del producto, esto para poder filtrar
+         if(categoria.value !== producto.categoria) return;
+         // Verifico que el status sea activo para poder mostrar
+         if(!producto.status) return;
          let slide = `<div class="swiper-slide">
          <div class="slide__content">
              <figure class="slide__figure">

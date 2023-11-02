@@ -1,7 +1,7 @@
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js";
 import { auth } from "../app/firebase.js";
 
-const formulario = document.querySelector('.form');
+const formulario = document.querySelector('.hero__form');
 
 formulario.addEventListener('submit', async e => {
     e.preventDefault();
