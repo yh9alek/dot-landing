@@ -45,6 +45,8 @@ const cantidad = document.querySelector('#stock');
 const img = document.querySelector('#file');
 const status = document.querySelector('#status');
 
+const codrempr = document.querySelector('#cod_rempr');
+
 btn__add.addEventListener('click', async (e) => {
   e.preventDefault();
   await addupt({ codigo: codigo.value, 
@@ -59,7 +61,7 @@ btn__add.addEventListener('click', async (e) => {
 
 btn__rem.addEventListener('click', async (e) => {
   e.preventDefault();
-  await eliminarProducto(document.querySelector('.remove input[type="text"]').value);
+  await eliminarProducto(codrempr.value);
 });
 
 btn__addp.addEventListener('click', async (e) => {
