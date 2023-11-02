@@ -1,8 +1,14 @@
 import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
 import { db } from '../app/firebase.js';
 
+const background = document.querySelector('.background');
+const message = document.querySelector('.background + .modal h3');
+const button = document.querySelector('.background + .modal button');
+
 const productos = document.querySelector('.products__container');
 const catProductos = document.querySelector('.admin__products-preview select');
+const searchProductos = document.querySelector('.admin__products-preview input#search');
+const searchPBtn = document.querySelector('.admin__products-preview button.search__btn');
 
 const codigo = document.querySelector('#cod');
 const descripcion = document.querySelector('#desc');
@@ -89,3 +95,67 @@ export const actualizarProducto = async ({cod, desc, cat, pre, des, can, img, st
     imagen.src = img;
     status.checked = stat;
 }
+
+const buscarProducto = async (cod) => {
+    // Colección productos
+    const productosCollection = collection(db, 'productos');
+    const querySnapshot = await getDocs(query(productosCollection, where('codigo', '==', cod)));
+    if(querySnapshot.empty) {
+        message.textContent = 'No existe un producto con este código';
+        background.classList.add('active');
+        return;
+    }
+    let html = '';
+    querySnapshot.docs.forEach(item => {
+        let active = (item.data().status) ? 'item' : 'item inactive';
+        let slide = `<li class="${active}">
+        <figure class="item__figure">
+            <img src="${item.data().url}" alt="Product Image">
+        </figure>
+        <div class="texts">
+            <h4>Cod: <span>${item.data().codigo}</span></h4>
+            <p>Cat: <span>${item.data().categoria}</span></p>
+        </div>
+        <div class="texts">
+            <h4><span>${item.data().descripcion}</span></h4>
+            <p>$<span>${item.data().precio}</span></p>
+        </div>
+        <div class="texts">
+            <h4><span>${item.data().descuento}</span>% OFF</h4>
+            <p><span>${item.data().cantidad}</span> left</p>
+        </div>
+    </li>`;
+        html += slide;
+    });
+    productos.innerHTML = html;
+}
+
+searchPBtn.addEventListener('click', (e) => {
+    catProductos.selectedIndex = 0;
+    buscarProducto(searchProductos.value);
+});
+
+searchProductos.oninput = () => {
+    if(searchProductos.value === '') {
+        catProductos.selectedIndex = 0;
+        previewProductos();
+    }
+}
+
+const limpiar = () => {
+    codigo.value = '';
+    descripcion.value = '';
+    categoria.selectedIndex = 0;
+    precio.value = '';
+    descuento.value = '';
+    cantidad.value = '';
+    img.value = '';
+    stat.checked = false;
+    imagen.src = '';
+    codrempr.value = '';
+}
+  
+button.addEventListener('click', (e) => {
+    background.classList.remove('active');
+    limpiar();
+});
