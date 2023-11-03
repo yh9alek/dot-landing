@@ -1,5 +1,5 @@
 import { doc, deleteDoc, query, where, getDocs, collection } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
-import { previewProductos } from './previews.js';
+import { previewPopulares, previewProductos } from './previews.js';
 
 import { db } from '../app/firebase.js';
 
@@ -16,7 +16,18 @@ const cantidad = document.querySelector('#stock');
 const img = document.querySelector('#file');
 const stat = document.querySelector('#status');
 const imagen = document.querySelector('.add .admin__figure .product__image');
+
 const codrempr = document.querySelector('#cod_rempr');
+
+const codigopo = document.querySelector('.populares #cod');
+const descripcionpo = document.querySelector('.populares #desc');
+const preciopo = document.querySelector('.populares #precio');
+const ratepo = document.querySelector('#rate');
+const salepo = document.querySelector('#sale');
+const imgpo = document.querySelector('.populares #file');
+const imagenpo = document.querySelector('.populares .add .admin__figure .product__image');
+
+const codrempo = document.querySelector('#cod_rempo');
 
 export const eliminar = async (cod, coleccion) => {
   if (!cod) {
@@ -40,6 +51,7 @@ export const eliminar = async (cod, coleccion) => {
     const productoDoc = querySnapshot.docs[0].ref;
     await deleteDoc(productoDoc);
     previewProductos();
+    previewPopulares();
     message.textContent = 'Producto eliminado correctamente.';
   } catch (error) {
     message.textContent = 'Error al eliminar el producto.';
@@ -49,15 +61,23 @@ export const eliminar = async (cod, coleccion) => {
 
 const limpiar = () => {
   codigo.value = '';
+  codigopo.value = '';
   descripcion.value = '';
+  descripcionpo.value = '';
   categoria.selectedIndex = 0;
   precio.value = '';
+  preciopo.value = '';
   descuento.value = '';
   cantidad.value = '';
   img.value = '';
+  imgpo.value = '';
   stat.checked = false;
   imagen.src = '';
+  imagenpo.src = '';
   codrempr.value = '';
+  codrempo.value = '';
+  ratepo.value = '';
+  salepo.checked = false;
 }
 
 button.addEventListener('click', (e) => {

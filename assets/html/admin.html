@@ -114,25 +114,7 @@
                                 <button class="search__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
                             </div>
                         </div>
-                        <ul class="products__container">
-                            <!-- <li class="item">
-                                <figure class="item__figure">
-                                    <img src="https://cdn.discordapp.com/attachments/1129195909796860029/1167308531670724630/shirt.jpg?ex=654da7c9&is=653b32c9&hm=f2a05f1316f28e209c2b291271bf3465372c50a76571df25e9c7c95f131fa7ea&" alt="Product Image">
-                                </figure>
-                                <div class="texts">
-                                    <h4 class="cod">Cod: 456</h4>
-                                    <p>Cat: Shirt</p>
-                                </div>
-                                <div class="texts">
-                                    <h4>Addidas</h4>
-                                    <p>$1500</p>
-                                </div>
-                                <div class="texts">
-                                    <h4>10% OFF</h4>
-                                    <p><span>15</span> left</p>
-                                </div>
-                            </li> -->
-                        </ul>
+                        <ul class="products__container"></ul>
                     </div>
                 </div>
             </div>
@@ -141,9 +123,9 @@
                     <div class="admin__add">
                         <div class="admin__product">
                             <h3>Añadir un producto popular</h3>
-                            <input type="file" name="file" id="file" accept="image/*" onchange="mostrarp(event, '.product__imagepo')" required>
+                            <input type="file" name="file" id="file" accept="image/*" onchange="mostrarp(event, '.populares .product__image')" required>
                             <figure class="admin__figure">
-                                <img src="" alt="Product Image" class="product__imagepo">
+                                <img src="" alt="Product Image" class="product__image">
                             </figure>
                         </div>
                         <div class="inputs">
@@ -185,6 +167,16 @@
                             </div>
                         </div>
                         <input type="submit" value="Remove" class="btn__add po">
+                    </div>
+                    <div class="admin__products-preview">
+                        <div class="prev__header">
+                            <h3>Populares</h3>
+                            <div>
+                                <input type="text" id="search" placeholder="Código">
+                                <button class="search__btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+                            </div>
+                        </div>
+                        <ul class="products__container"></ul>
                     </div>
                 </div>
             </div>

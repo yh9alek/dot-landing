@@ -36,7 +36,7 @@ body {
 }
 
 .modal {
-    position: absolute;
+    position: fixed;
     top: -500px;
     width: 500px;
     left: calc(50% - 250px);
@@ -388,6 +388,18 @@ input#search {
 .search__btn:hover {
     background-color: #5656e0;
     cursor: pointer;
+}
+
+.populares i.fa-star {
+    color: #ffb03a;
+}
+
+.productos .texts:nth-of-type(3) {
+    margin-left: auto;
+}
+
+.populares .texts:nth-of-type(2) {
+    margin-left: auto;
 }
 
 @media screen and (max-width: 1000px) {

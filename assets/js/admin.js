@@ -1,10 +1,35 @@
 import { addupt } from './add.js';
 import { adduptpo } from './add.js';
 import { eliminar } from './delete.js';
-import { previewProductos } from './previews.js';
+import { previewPopulares, previewProductos } from './previews.js';
 import { auth } from '../app/firebase.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
 import { signOut } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
+
+const btn__add = document.querySelector('.btn__add.pr');
+const btn__rem = document.querySelector('.remove .btn__add.pr');
+const btn__addp = document.querySelector('.btn__add.po');
+const btn__remp = document.querySelector('.remove .btn__add.po');
+
+const codigo = document.querySelector('#cod');
+const descripcion = document.querySelector('#desc');
+const categoria = document.querySelector('#cat');
+const precio = document.querySelector('#precio');
+const descuento = document.querySelector('#descuento');
+const cantidad = document.querySelector('#stock');
+const img = document.querySelector('#file');
+const status = document.querySelector('#status');
+
+const codrempr = document.querySelector('#cod_rempr');
+
+const codigopo = document.querySelector('.populares #cod');
+const descripcionpo = document.querySelector('.populares #desc');
+const preciopo = document.querySelector('.populares #precio');
+const ratepo = document.querySelector('#rate');
+const salepo = document.querySelector('#sale');
+const imgpo = document.querySelector('.populares #file');
+
+const codrempo = document.querySelector('#cod_rempo');
 
 onAuthStateChanged(auth, (user) => {
   if (!user) {
@@ -31,22 +56,6 @@ const cerrarSesion = () => {
 	});
 }
 
-const btn__add = document.querySelector('.btn__add.pr');
-const btn__rem = document.querySelector('.remove .btn__add.pr');
-const btn__addp = document.querySelector('.btn__add.po');
-const btn__remp = document.querySelector('.remove .btn__add.po');
-
-const codigo = document.querySelector('#cod');
-const descripcion = document.querySelector('#desc');
-const categoria = document.querySelector('#cat');
-const precio = document.querySelector('#precio');
-const descuento = document.querySelector('#descuento');
-const cantidad = document.querySelector('#stock');
-const img = document.querySelector('#file');
-const status = document.querySelector('#status');
-
-const codrempr = document.querySelector('#cod_rempr');
-
 btn__add.addEventListener('click', async (e) => {
   e.preventDefault();
   await addupt({ codigo: codigo.value, 
@@ -65,23 +74,15 @@ btn__rem.addEventListener('click', async (e) => {
   await eliminar(codrempr.value, 'productos');
 });
 
-const codigo_po = document.querySelector('.populares #cod');
-const descripcion_po = document.querySelector('.populares #desc');
-const precio_po = document.querySelector('.populares #precio');
-const rate_po = document.querySelector('#rate');
-const sale_po = document.querySelector('#sale');
-const img_po = document.querySelector('.populares #file');
-
-const codrempo = document.querySelector('#cod_rempo');
-
 btn__addp.addEventListener('click', async (e) => {
   e.preventDefault();
-  await adduptpo({ codigo: codigo_po.value,
-                         descripcion: descripcion_po.value, 
-                         precio: parseFloat(precio_po.value),
-                         rate: rate_po.value,
-                         img: img_po.files[0], 
-                         sale: sale_po.value, });
+  await adduptpo({ codigo: codigopo.value,
+                   descripcion: descripcionpo.value, 
+                   precio: parseFloat(preciopo.value),
+                   rate: ratepo.value,
+                   img: imgpo.files[0], 
+                   sale: salepo.checked, });
+  previewPopulares();
 });
 
 btn__remp.addEventListener('click', async (e) => {

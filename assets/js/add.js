@@ -15,7 +15,18 @@ const cantidad = document.querySelector('#stock');
 const img = document.querySelector('#file');
 const stat = document.querySelector('#status');
 const imagen = document.querySelector('.add .admin__figure .product__image');
+
 const codrempr = document.querySelector('#cod_rempr');
+
+const codigopo = document.querySelector('.populares #cod');
+const descripcionpo = document.querySelector('.populares #desc');
+const preciopo = document.querySelector('.populares #precio');
+const ratepo = document.querySelector('#rate');
+const salepo = document.querySelector('#sale');
+const imgpo = document.querySelector('.populares #file');
+const imagenpo = document.querySelector('.populares .add .admin__figure .product__image');
+
+const codrempo = document.querySelector('#cod_rempo');
 
 export const addupt = async ({codigo, descripcion, categoria, precio, descuento, cantidad, img, status}) => {
   if(!codigo || !descripcion || !precio || !descuento || !cantidad) {
@@ -73,10 +84,20 @@ export const addupt = async ({codigo, descripcion, categoria, precio, descuento,
 };
 
 export const adduptpo = async ({codigo, descripcion, precio, rate, img, sale}) => {
+  if(!codigo || !descripcion || !precio || !rate) {
+    message.textContent = 'No debe haber campos vacíos';
+    background.classList.add('active');
+    return;
+  }
   try {
     // Colección populares
     const popularesCollection = collection(db, 'populares');
     const querySnapshot = await getDocs(query(popularesCollection, where('codigo', '==', codigo)));
+    if(!img && querySnapshot.empty) {
+      message.textContent = 'El producto debe tener una imagen';
+      background.classList.add('active');
+      return;
+    }
 
     // Obtener la URL de la imagen, ya sea nueva o existente
     let imageUrl = null;
@@ -117,15 +138,23 @@ export const adduptpo = async ({codigo, descripcion, precio, rate, img, sale}) =
 
 const limpiar = () => {
   codigo.value = '';
+  codigopo.value = '';
   descripcion.value = '';
+  descripcionpo.value = '';
   categoria.selectedIndex = 0;
   precio.value = '';
+  preciopo.value = '';
   descuento.value = '';
   cantidad.value = '';
   img.value = '';
+  imgpo.value = '';
   stat.checked = false;
   imagen.src = '';
+  imagenpo.src = '';
   codrempr.value = '';
+  codrempo.value = '';
+  ratepo.value = '';
+  salepo.checked = false;
 }
 
 button.addEventListener('click', (e) => {
