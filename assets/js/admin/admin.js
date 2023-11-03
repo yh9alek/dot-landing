@@ -2,7 +2,7 @@ import { addupt } from './add.js';
 import { adduptpo } from './add.js';
 import { eliminar } from './delete.js';
 import { previewPopulares, previewProductos } from './previews.js';
-import { auth } from '../app/firebase.js';
+import { auth } from '../../app/firebase.js';
 import { onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
 import { signOut } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-auth.js';
 

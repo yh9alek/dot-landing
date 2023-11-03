@@ -1,7 +1,7 @@
 import { doc, deleteDoc, query, where, getDocs, collection } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
 import { previewPopulares, previewProductos } from './previews.js';
 
-import { db } from '../app/firebase.js';
+import { db } from '../../app/firebase.js';
 
 const background = document.querySelector('.background');
 const message = document.querySelector('.background + .modal h3');

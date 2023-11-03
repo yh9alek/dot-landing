@@ -1,9 +1,15 @@
-import { getDocs, collection } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
+import { getDocs, collection, query, where } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
 import { db } from '../app/firebase.js';
 
 let productos = document.querySelector('.products-swiper .swiper-wrapper');
 let populares = document.querySelector('.populars-swiper .swiper-wrapper');
 const categoria = document.querySelector('select');
+const search = document.querySelector('.btn-search');
+const input_search = document.querySelector('.home__inputs input');
+
+const background = document.querySelector('.background');
+const message = document.querySelector('.background + .modal h3');
+const button = document.querySelector('.background + .modal button');
 
 // Cada vez que cambio el select, se actualizan los productos normales
 categoria.onchange = () => {
@@ -96,3 +102,59 @@ const leerPopulares = () => {
     });
 };
 leerPopulares();
+
+const buscarProducto = async (descripcion) => {
+  // Colección productos
+  const productosCollection = collection(db, 'productos');
+  const querySnapshot = await getDocs(query(productosCollection, where('descripcion', '==', descripcion)));
+  if(querySnapshot.empty) {
+      message.textContent = 'No existe este producto';
+      background.classList.add('active');
+      return;
+  }
+  let html = '';
+  querySnapshot.docs.forEach(item => {
+      let active = (item.data().status) ? 'item' : 'item inactive';
+      let slide = `<div class="swiper-slide">
+      <div class="slide__content">
+          <figure class="slide__figure">
+              <img src="${item.data().url}" alt="Product Image">
+          </figure>
+          <h3>${item.data().descripcion}</h3>
+          <div class="price">
+              <p><span>$</span>${item.data().precio}</p>
+              <p>${item.data().descuento}% OFF</p>
+          </div>
+          <div class="buy">
+              <a href="#" class="btn-buy">Buy now</a>
+              <i class="fa-solid fa-heart"></i>
+          </div>
+          <div class="bar"></div>
+          <div class="tags">
+              <p>50% Lorem</p>
+              <p><span>${item.data().cantidad}</span> Left</p>
+          </div>
+      </div>
+  </div>`;
+      html += slide;
+  });
+  productos.innerHTML = html;
+}
+
+search.addEventListener('click', (e) => {
+  e.preventDefault();
+  categoria.selectedIndex = 0;
+  buscarProducto(input_search.value);
+});
+
+button.addEventListener('click', (e) => {
+    background.classList.remove('active');
+    input_search.value = '';
+});
+
+input_search.oninput = () =>{
+    if(input_search.value === '') {
+        categoria.selectedIndex = 0;
+        leerProductos();
+    }
+}

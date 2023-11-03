@@ -1,6 +1,6 @@
 import { collection, addDoc, getDocs, query, where, doc, updateDoc } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-firestore.js';
 import { ref, uploadBytes, getDownloadURL } from 'https://www.gstatic.com/firebasejs/10.5.2/firebase-storage.js';
-import { db, storage } from '../app/firebase.js';
+import { db, storage } from '../../app/firebase.js';
 
 const background = document.querySelector('.background');
 const message = document.querySelector('.background + .modal h3');
