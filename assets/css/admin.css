@@ -285,10 +285,12 @@ header {
     flex-wrap: wrap;
     gap: 5px;
     font-size: 10px;
+    background-color: #eeeeee;
     border: 1px solid #33333333;
     border-radius: 5px;
     padding: 5px 5px 10px;
     margin-bottom: 10px;
+    box-shadow: var(--box-shadow);
     z-index: 1000;
 }
 
