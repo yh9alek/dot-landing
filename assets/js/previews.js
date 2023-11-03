@@ -281,7 +281,7 @@ const limpiar = () => {
     cantidad.value = '';
     img.value = '';
     imgpo.value = '';
-    stat.checked = false;
+    status.checked = false;
     imagen.src = '';
     imagenpo.src = '';
     ratepo.value = '';

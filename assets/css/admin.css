@@ -408,6 +408,13 @@ input#search {
     }
 }
 
+@media screen and (max-width: 590px) {
+    .modal {
+        width: 85%;
+        left: 7%;
+    }
+}
+
 @media screen and (max-width: 530px) {
     .admin__content {
         width: 100% !important;
@@ -434,7 +441,10 @@ input#search {
     input#search {
         width: 60px !important;
     }
-    
+
+    .background.active + .modal {
+        top: 220px;
+    } 
 }
 
 @media screen and (max-width: 450px) {
