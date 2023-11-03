@@ -75,7 +75,7 @@ const leerPopulares = () => {
          }
          let slide = `<div class="swiper-slide">
          <div class="slide__content">
-             <div class="background"></div>
+             <div class="b"></div>
              <a href="#" class="slide-heart"><i class="fa-solid fa-heart"></i></a>
              <a href="#" class="slide-view"><i class="fa-solid fa-eye"></i></a>
              <a href="#" class="slide-cart"><i class="fa-solid fa-cart-shopping"></i></a>
